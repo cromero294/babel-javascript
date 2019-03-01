@@ -177,3 +177,129 @@ const sumaNums = nums.reduce(function(acc, num) {
 console.log(sumaNums);
 
 console.log('----------------------------------------');
+
+/**
+ * Funciones autoejecutables
+ */
+
+(function (algo) {
+    console.log('Función autoejecutable ' + algo);
+}('algo'));
+
+!!function (algo) {
+    console.log('Función autoejecutable ' + algo);  
+}('algo');
+
+(function (algo) {
+    console.log('Función autoejecutable ' + algo);  
+})('algo');
+
+console.log('----------------------------------------');
+
+/**
+ * Scope/Ambito
+ */
+
+function sum(x, y) {
+    resultado = x + y;
+    return resultado;
+}
+
+function resta(x, y) {
+    var resultado = x - y;
+    return resultado;
+}
+
+sum(5, 5);
+resta(6, 2);
+console.log(resultado);
+
+console.log('----------------------------------------');
+
+/**
+ * Objetos/Diccionarios
+ */
+
+const coche = {
+    marca: "Tesla",
+    modelo: "Model S3",
+    color: "negro"
+};
+
+let prop = 'marca'
+
+console.log(coche.marca);
+console.log(coche['marca']); // Mejor usar la primera
+console.log(coche[prop]);
+
+console.log(coche.color);
+coche.color = 'blanco';
+console.log(coche.color);
+
+console.log(coche);
+delete coche.modelo;
+console.log(coche);
+coche.modelo = "Model X";
+console.log(coche);
+
+coche.pitar = function() {
+    console.log("PIIIIIII");
+}
+coche.pitar();
+
+console.log('----------------------------------------');
+
+/**
+ * Clases con funciones
+ */
+
+function Coche(marca, modelo, color, sonido) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.sonido = sonido;
+    this.color = color;
+}
+
+Coche.prototype.pitar = function() {
+                            console.log(this.sonido);
+                        }
+
+let seat = new Coche("Seat", "Ibiza", "verde", "PI PI PI");
+console.log(seat);
+
+let bmw = new Coche("BMW", "120", "blanco", "PA");
+console.log(bmw);
+
+console.log('----------------------------------------');
+
+function Serie(titulo, episodios, episodios_vistos) {
+    this.titulo = titulo;
+    this.episodios = episodios;
+    this.episodios_vistos = episodios_vistos;
+}
+
+Serie.prototype.porVer = function() {
+                            return this.episodios - this.episodios_vistos;
+                        }
+
+Serie.prototype.finalizada = function() {
+                            return (this.porVer() == 0);
+                        }
+
+let brbad = new Serie("Breaking bad", 50, 50);
+let got = new Serie("Game of Thrones", 80, 70);
+let madmen = new Serie("Mad Men", 90, 50);
+let mrrobot = new Serie("Mr. Robot", 40, 39);
+
+let series = [brbad, got, madmen, mrrobot];
+
+const no_finalizadas = series.filter(function(serie) {
+    return !serie.finalizada();
+});
+
+console.log(no_finalizadas);
+
+console.log('----------------------------------------');
+
+console.log(Math.PI);
+
