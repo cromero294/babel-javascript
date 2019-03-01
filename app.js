@@ -303,3 +303,74 @@ console.log('----------------------------------------');
 
 console.log(Math.PI);
 
+console.log('----------------------------------------');
+
+texto = "Paco viene con las rebajas."
+t1 = texto.replace("a", "*");
+console.log(t1);
+
+texto = "Paco viene con las rebajas."
+t1 = texto.replace(/a/g, "*");
+console.log(t1);
+
+console.log('----------------------------------------');
+
+function palindromo(text) {
+    t1 = text.toLowerCase().replace(/ /g, "");
+
+    let t = t1.split("");
+    let tr = t1.split("").reverse();
+
+    return (t.join("") == tr.join(""));
+}
+
+console.log(palindromo("sugus"));
+console.log(palindromo("juan"));
+console.log(palindromo("hol aL oh"));
+
+console.log('----------------------------------------');
+
+// function filter(array, funct){
+//     const arr2 = [];
+
+//     for(elem of array){
+//         if(funct(elem)){
+//             arr2.push(elem);
+//         }
+//     }
+
+//     return arr2;
+// }
+
+/**
+ * Función de Callback
+ */
+
+function filter(array, funct){
+    const arr2 = [];
+    array.forEach(function(elem) {
+        if(funct(elem)){
+            arr2.push(elem);
+        }
+    });
+    return arr2;
+}
+
+console.log(filter([1, 2, 3, 4], function(i) {
+    if((i % 2 != 0)){
+        return true;
+    }
+}));
+
+console.log(filter(["hola", "sugus", "holaaloh", "PepE"], palindromo));
+
+console.log('----------------------------------------');
+
+/**
+ * Fechas (libreria "Moment.js")
+ */
+
+var hoy = new Date();
+console.log(hoy);
+
+console.log('----------------------------------------');
