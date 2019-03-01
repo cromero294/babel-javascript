@@ -13,6 +13,8 @@ console.log('----------------------------------------');
  * VAR VS LET
  */
 
+console.log("VAR VS LET");
+
 var n = 1;
 let m = 1;
 
@@ -36,6 +38,8 @@ console.log('----------------------------------------');
 /**
  * Tipos
  */
+
+console.log("TIPOS");
 
 console.log('Paco dijo: \'Hola, te vienes?\'');
 console.log("Paco dijo: 'Hola, te vienes?'");
@@ -62,6 +66,8 @@ console.log(dias);
 
 console.log('----------------------------------------');
 
+console.log("POPUPS");
+
 // alert("Un mensaje");
 // console.log(confirm("Devuelve true o false"));
 // console.log(prompt("Devuelve el valor"));
@@ -73,30 +79,32 @@ console.table({nombre: "Mario", apellido: "Calle"});
 
 console.log('----------------------------------------');
 
+console.log("OPERADOR TERNARIO");
+
 // valor = booleano
 
 // (valor ? "si" : "no") // operador ternario
 
 console.log('----------------------------------------');
 
+console.log("FOR");
+
 for(let i = 0; i < dias.length; i++) {
     console.log(dias[i]);
 }
-
-console.log('----------------------------------------');
 
 for(let i in dias) {
     console.log(i);
     console.log(dias[i]);
 }
 
-console.log('----------------------------------------');
-
 for(let i of dias) {
     console.log(i);
 }
 
 console.log('----------------------------------------');
+
+console.log("BUCLES");
 
 let persona = {
     nombre: 'Robb',
@@ -121,6 +129,8 @@ for(let i of Object.keys(persona)) {
 
 console.log('----------------------------------------');
 
+console.log("FUNCIONES");
+
 function saludar(nombre) {
     console.log(arguments);
     console.log("Hola " + nombre);
@@ -131,6 +141,8 @@ saludar("Pepe Viyuela", 2, 3, 'eii');
 saludar();
 
 console.log('----------------------------------------');
+
+console.log("RECURSIVA");
 
 function factorial(num) {
     if (num <= 1) {
@@ -143,6 +155,8 @@ function factorial(num) {
 console.log(factorial(3));
 
 console.log('----------------------------------------');
+
+console.log("FUNCIONES MAP/FILTER...");
 
 let fn1 = function () {
     console.log('Expresion');
@@ -181,6 +195,7 @@ console.log('----------------------------------------');
 /**
  * Funciones autoejecutables
  */
+console.log("AUTOEJECUTABLES");
 
 (function (algo) {
     console.log('Función autoejecutable ' + algo);
@@ -199,6 +214,8 @@ console.log('----------------------------------------');
 /**
  * Scope/Ambito
  */
+
+console.log("SCOPE");
 
 function sum(x, y) {
     resultado = x + y;
@@ -219,6 +236,8 @@ console.log('----------------------------------------');
 /**
  * Objetos/Diccionarios
  */
+
+console.log("OBJETOS/DICCIONARIOS");
 
 const coche = {
     marca: "Tesla",
@@ -252,6 +271,8 @@ console.log('----------------------------------------');
 /**
  * Clases con funciones
  */
+
+console.log("CLASES");
 
 function Coche(marca, modelo, color, sonido) {
     this.marca = marca;
@@ -301,9 +322,13 @@ console.log(no_finalizadas);
 
 console.log('----------------------------------------');
 
+console.log("MATH");
+
 console.log(Math.PI);
 
 console.log('----------------------------------------');
+
+console.log("STRING");
 
 texto = "Paco viene con las rebajas."
 t1 = texto.replace("a", "*");
@@ -346,6 +371,8 @@ console.log('----------------------------------------');
  * Función de Callback
  */
 
+console.log("CALLBACK");
+
 function filter(array, funct){
     const arr2 = [];
     array.forEach(function(elem) {
@@ -370,7 +397,114 @@ console.log('----------------------------------------');
  * Fechas (libreria "Moment.js")
  */
 
-var hoy = new Date();
+console.log("DATE");
+
+var hoy = new Date().toTimeString();
 console.log(hoy);
 
+var hoy = new Date(1992, 04, 03);
+
 console.log('----------------------------------------');
+
+/**
+ * Math
+ */
+
+console.log(Math.random());
+
+console.log('----------------------------------------');
+
+/**
+ * JSON
+ */
+
+console.log("JSON");
+
+persona = {
+    nombre: "Mario",
+    apellido: "Calle"
+}
+
+var pj = JSON.stringify(persona)
+
+console.log(pj);
+console.log(JSON.parse(pj))
+
+console.log('----------------------------------------');
+
+console.log("ECMA6");
+
+/**
+ * ECMA6
+ */
+
+ // let
+ // const
+ // for ... of ...
+
+ //template literals
+const persona1 = {
+    nombre: "Mario",
+    apellido: "Calle"
+};
+
+console.log(`Me llamo ${persona1.nombre} ${persona1.apellido}`);
+console.log("Me llamo\n " + persona1.nombre + "\n " + persona1.apellido + "\n");
+console.log(`Me llamo: 
+        Nombre: ${persona1.nombre} 
+        Apellidos: ${persona1.apellido}
+        2+2: ${2+2}`);
+    
+ // lambda
+a = function() {
+    console.log("Hola");
+}
+
+b = () => console.log("Hola");
+
+c = num => console.log(num);
+
+d = (x, y) => console.log(x + y);
+
+e = (n1, n2) => n1+n2;
+e2 = (n1, n2) => {
+    return n1+n2;
+}
+
+console.log(e(1,1));
+console.log([1, 2, 3, 4].map((x, y) => x * y));
+
+console.log('----------------------------------------');
+
+const pelicula = {
+    titulo: "Una película",
+    anyadirAnyo: function(anyo) {
+        this.anyo = anyo;
+        self = this;
+        console.log(this.anyo);
+        // const cb = function() {
+        //     console.log(this);
+        //     console.log(self);
+        // };
+        cb = () => console.log(this);
+        cb();
+    }
+}
+
+pelicula.anyadirAnyo(2018);
+
+console.log('----------------------------------------');
+
+function getNumLoteria(n1,...nums) {
+    console.log(`Sorteo: ${n1}: ${nums}`);
+}
+
+getNumLoteria(2, 3, 4, 5, "hola");
+
+let numeros = [1, 2, 3, 4, 5, 6]
+
+let max = Math.max(...numeros);
+let max2 = Math.max(1, 2, 3, 4, 5, 6);
+
+const {nombre, apellido} = persona1;
+console.log(`${nombre} ${apellido}`);
