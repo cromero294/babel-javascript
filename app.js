@@ -508,4 +508,6 @@ let max2 = Math.max(1, 2, 3, 4, 5, 6);
 
 const {nombre, apellido} = persona1;
 console.log(`${nombre} ${apellido}`);
-const [s1, ...series] = misSeries;
+
+// const [s1, ...series] = misSeries;
+// const [, s2] = misSeries;
