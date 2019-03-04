@@ -1,3 +1,6 @@
+// import { Mascota as M, NUM} from './mascota.mjs'
+// const Mascota = require('./mascota.js');
+
 console.log('Hola mundo!')
 num = 4
 console.log(num)
@@ -511,3 +514,55 @@ console.log(`${nombre} ${apellido}`);
 
 // const [s1, ...series] = misSeries;
 // const [, s2] = misSeries;
+
+console.log('----------------------------------------');
+
+class CocheCoche {
+    constructor(marca, modelo, sonido, color, owner){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.sonido = sonido;
+        this.color = color;
+        var _owner = owner;
+        this.getOwner = () => _owner;
+        this.setOwner = (x) => { _owner = x; }
+    }
+    pitar() {
+        console.log(this.sonido);
+    }
+    static getNumRuedas() {
+        return 4;
+    }
+}
+
+const audi = new CocheCoche('Audi', 'A4', 'PIIIII', 'negro', 'Pepito');
+audi.pitar();
+console.log(audi.marca);
+console.log(CocheCoche.getNumRuedas());
+console.log(audi._owner);
+console.log(audi.getOwner());
+audi.setOwner('Juan Carlos');
+console.log(audi.getOwner());
+
+class Rectangulo {
+    constructor(ancho, alto) {
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    getArea() {
+        return this.ancho * this.alto;
+    }
+}
+
+class Cuadrado extends Rectangulo{
+    constructor(lado) {
+        super(lado, lado);
+    }
+}
+
+const c1 = new Cuadrado(3);
+console.log(c1.getArea());
+
+// const perro = new Mascota('Toby', 'perro');
+// const gato = new Mascota('Felix', 'gato');
